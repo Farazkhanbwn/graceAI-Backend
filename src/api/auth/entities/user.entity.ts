@@ -1,4 +1,3 @@
-// src/users/entities/user.entity.ts
 import { BaseEntity } from 'src/shared/base.entity';
 import { Entity, Column } from 'typeorm';
 
