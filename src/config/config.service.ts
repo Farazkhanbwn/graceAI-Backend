@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { Injectable } from '@nestjs/common';
 import * as Joi from 'joi';
 import * as fs from 'fs';
@@ -114,6 +112,10 @@ export class ConfigService {
     return this.get('GLOBAL_API_PREFIX');
   }
 
+  getJWTSecretKey(): string {
+    return this.get('JWT_SECRET_KEY');
+  }
+
   getTypeOrmConfig(): DataSourceOptions {
     const baseConfig: DataSourceOptions = {
       type: 'postgres',
@@ -121,7 +123,7 @@ export class ConfigService {
       password: this.getDBPassword(),
       database: this.getDBName(),
       host: this.getDBHost(),
-      synchronize: false,
+      synchronize: true,
       port: parseInt(this.getDBPort()),
       entities: [__dirname + '/../**/*.entity{.ts,.js}'],
       migrations: ['dist/database/migrations/*{.ts,.js}'],
