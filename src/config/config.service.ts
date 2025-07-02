@@ -54,6 +54,10 @@ export class ConfigService {
       DB_NAME: Joi.string().trim().min(1).required(),
       DB_HOST: Joi.string().trim().min(1).required(),
       DB_PORT: Joi.number().integer().positive().min(1001).max(9999).required(),
+      GLOBAL_API_PREFIX: Joi.string()
+        .trim()
+        .regex(/v([1-9]+)/)
+        .required(),
     });
 
     return schema;
@@ -104,6 +108,10 @@ export class ConfigService {
 
   getDBPort(): string {
     return this.get('DB_PORT');
+  }
+
+  getGlobalAPIPrefix(): string {
+    return this.get('GLOBAL_API_PREFIX');
   }
 
   getTypeOrmConfig(): DataSourceOptions {
