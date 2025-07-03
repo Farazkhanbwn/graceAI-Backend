@@ -1,7 +1,7 @@
 import { BaseEntity } from 'src/shared/base.entity';
 import { Entity, Column } from 'typeorm';
 
-@Entity({ schema: 'grace', name: 'subscription' })
+@Entity({ schema: 'grace-ai', name: 'subscription' })
 export class SubscriptionEntity extends BaseEntity {
   @Column({ type: 'integer' })
   recipientId: number;

@@ -135,7 +135,7 @@ export class ConfigService {
         connectionTimeoutMillis: 30000,
         statement_timeout: 30000,
         query_timeout: 30000,
-        application_name: 'noair-lab-backend',
+        application_name: 'grace-ai-backend',
         keepAlive: true,
         keepAliveInitialDelayMillis: 10000,
       },
